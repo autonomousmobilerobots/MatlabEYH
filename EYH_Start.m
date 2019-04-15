@@ -14,7 +14,7 @@ Ports = CreatePiInit(RobotName);
 CreatePort = Ports.create;
 
 % Make sure all the init stuff is done
-prompt = 'Look at the terminal command window. Does it say "Ready for Commands!"? y/n [y]';
+prompt = 'Look at the terminal command window. Does it say "Ready for Commands!"? y/n [y] ';
 str = input(prompt,'s');
 if isempty(str)
     str = 'y';
@@ -22,8 +22,10 @@ end
 
 % Run the maze program if all good.
 if (strcmp(str,'y') || strcmp(str,'Y'))
+    disp('Running Maze Program')
     EYH_Maze_Program(CreatePort);
 else 
+    disp('Something did not go as planned - shutting down. Is the robot on? Try again!')
     CreatePiShutdown(Ports);
     return;
 end
