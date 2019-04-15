@@ -14,7 +14,7 @@ Ports = CreatePiInit(RobotName);
 CreatePort = Ports.create;
 
 % Make sure all the init stuff is done
-prompt = 'Look at the terminal command window. Does it say "Ready for Command!"? y/n [y]';
+prompt = 'Look at the terminal command window. Does it say "Ready for Commands!"? y/n [y]';
 str = input(prompt,'s');
 if isempty(str)
     str = 'y';
