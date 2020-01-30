@@ -10,7 +10,7 @@ function [] = EYH_Start(RobotName)
 
 
 % Call CreatePiInit function to initialize connection with the robot 
-Ports = CreatePiInit(RobotName);
+Port = DebugPiInit(RobotName);
 
 % Make sure all the init stuff is done
 prompt = 'Look at the terminal command window. Does it say "Ready for Commands!"? y/n [y] ';
@@ -20,13 +20,11 @@ if isempty(str)
 end
 
 % Run the maze program if all looks good. Otherwise stop and return.
-if (strcmp(str,'y') || strcmp(str,'Y'))
+if (strcmpi(str,'y'))
     disp('Running Maze Program')
-    EYH_Maze_Program(Ports.create);
+    EYH_Maze_Program(Port);
 else 
     disp('Something did not go as planned - shutting down. Is the robot on? Try again!')
-    CreatePiShutdown(Ports);
+    DebugPiShutdown(Port);
     return;
 end
-    
-
