@@ -1,6 +1,7 @@
 function [] = EYH_Start(RobotName)
 % function [] = EYH_Start(RobotName)
 % Run this function to start a new EYH session.
+% The full Create Matlab toolbox needs to be in the path  
 %
 % RobotName = A string with the name of the Create you want to connect to
 %
@@ -9,7 +10,7 @@ function [] = EYH_Start(RobotName)
 % properly established, and run the main Maze program.
 
 
-% Call CreatePiInit function to initialize connection with the robot 
+% Call DebugPiInit function to initialize connection with the robot 
 Port = DebugPiInit(RobotName);
 
 % Make sure all the init stuff is done
